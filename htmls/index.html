@@ -17,15 +17,15 @@
 <body>
  	<div class="container"  id="app">
 		<div class="msg" :class="{fade: !msg}">{{msg}}</div>
- 		<div class="step1" :class="{active:step===1}" v-if="step==1">
+ 		<div class="step1" :class="{active: hasload}" v-if="step==1">
 			 <div class="car"></div>
 			 <div class="num">{{loadNum}}%</div>
  		</div> 
-		<div class="step2 " :class="{active:step===2}" v-if="step==2">
+		<div class="step2 " :class="{active: hasload}" v-if="step==2">
 			<div class="text"></div>
 			<div class="btn" @click="step2BtnEvent"></div>
 		</div>
-		<div class="step3 " :class="{active:step===3}" v-if="step==3">
+		<div class="step3 " :class="{active:hasload}" v-if="step==3">
 			<div class="text">
 				<h1>!</h>
 				<p>
@@ -37,17 +37,17 @@
 				<video id="videoRef" src="https://www.runoob.com/try/demo_source/movie.mp4" width="100%"></video>
 			</div>
 			<div class="car"></div>
-			<div class="btn" v-show="videoEnd" @click="step3BtnEvent"></div>
+			<div class="btn" :class="{show:videoEnd}" @click="step3BtnEvent"></div>
 		</div>
 		<!-- 问题 -->
-		<div class="step4" :class="{active:step===4}" v-if="step==4">
+		<div class="step4" :class="{active:hasload}" v-if="step==4">
 			<div :class="'q-text-'+qIndex"></div>
 			<div :class="'bg q-'+qIndex"></div>
 			<div class="option-a" @click="nextQuestion">{{qArr[qIndex].a}}</div>
 			<div class="option-b" @click="nextQuestion">{{qArr[qIndex].b}}</div>
 		</div>
 		<!-- 结果 -->
-		<div class="step5" :class="{active:step===5}" v-if="step==5">
+		<div class="step5" :class="{active:hasload}" v-if="step==5">
 			<div :class="'bg a-'+AIndex"></div>
 			<div class="btn fc " v-show='!afterPressShare'>
 				<span title="分享朋友圈" @click="toShare"></span>
@@ -56,7 +56,7 @@
 			<div class="longPressBtn" v-show='afterPressShare'></div>
 			<!-- <div class="codeImg"><img src="./statics/imgs/2code.jpg" alt=""></div> -->
 		</div>
-		<div class="step6" :class="{active:step===6}" v-if="step==6">
+		<div class="step6" :class="{active:hasload}" v-if="step==6">
 			<div class="form">
 				<div class="item">
 					<span>姓名</span>

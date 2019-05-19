@@ -28,7 +28,7 @@
 	new Vue({
 		el: '#app',
 		data: {
-			step: 1, // 页面索引
+			step: 4, // 页面索引
 			qIndex:1, // 题目索引
 			iProvince:0, //'省会索引'
 			icity:0, //'城市索引'
@@ -51,6 +51,7 @@
 				{a:'1.8T发动机+8AT变速箱',b:'猛踩油门，时刻不停'},
 			],
 			msg:'',
+			hasload:false,
 			finishDialog: false,
 			shareDialog: false,
 			hideIWinStatus: false,
@@ -60,10 +61,20 @@
 		mounted: function() {
 			// if( !isWXBrowser()){ alert("请在微信浏览器中打开");return false; }
 			// this.toInitWX();
-			this.loadImg();
+			// this.loadImg();
 		},
 		computed: {
 
+		},
+		watch:{
+			step:function(a,b){
+				console.log(a,b,"step")
+				var _this = this;
+				_this.hasload = false;
+				setTimeout(() => {
+					_this.hasload = true;
+				}, 500);
+			}
 		},
 		methods: {
 			// load 完图片后初始化页面
@@ -148,6 +159,7 @@
 
 			},
 			loadImg: function() {
+				this.step = 1;
 				var that = this,
 					arr = [
 						'1.bg.jpg','2-bg.jpg','2-btn.png','3-bg.jpg','3-car.png','long-btn.png',
@@ -165,7 +177,9 @@
 						if (_acount == arr.length) {
 							timer = setInterval(function() {
 								if (timer && that.loadNum >= 100) {
-									that.initPage()
+									setTimeout( function(){
+										that.initPage()
+									}, 1000);
 									timer && clearInterval(timer);
 									timer = null;
 								} else {

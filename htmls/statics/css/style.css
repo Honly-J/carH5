@@ -28,6 +28,166 @@
   }
 }
 
+@-webkit-keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes zoomInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(-1000px, 0, 0);
+    transform: scale3d(0.1, 0.1, 0.1) translate3d(-1000px, 0, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(10px, 0, 0);
+    transform: scale3d(0.475, 0.475, 0.475) translate3d(10px, 0, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+  }
+}
+
+@keyframes zoomInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(-1000px, 0, 0);
+    transform: scale3d(0.1, 0.1, 0.1) translate3d(-1000px, 0, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(10px, 0, 0);
+    transform: scale3d(0.475, 0.475, 0.475) translate3d(10px, 0, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+  }
+}
+
+@-webkit-keyframes flipInX {
+  from {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+  to {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+@keyframes flipInX {
+  from {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+  to {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
 body, html {
   width: 100%;
   height: 100%;
@@ -52,7 +212,7 @@ body, html {
 
 .step1 {
   background: url("../imgs/1.bg.jpg") no-repeat 50% 50%;
-  background-size: 100% 100%;
+  background-size: 100% auto;
   width: 100%;
   height: 100%;
 }
@@ -68,6 +228,11 @@ body, html {
   height: 10.66667rem;
   background: url("../imgs/1-car.png") no-repeat 0rem 0rem;
   background-size: cover;
+  -webkit-transition: transform 3s 0s linear;
+  -webkit-transition: -webkit-transform 3s 0s linear;
+  transition: -webkit-transform 3s 0s linear;
+  transition: transform 3s 0s linear;
+  transition: transform 3s 0s linear, -webkit-transform 3s 0s linear;
 }
 
 .step1 .num {
@@ -86,9 +251,14 @@ body, html {
   letter-spacing: 1px;
 }
 
+.step1.active .car {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
 .step2 {
   background: url("../imgs/2-bg-2.jpg") no-repeat 50% 50%;
-  background-size: 100% 100%;
+  background-size: 100% auto;
   width: 100%;
   height: 100%;
 }
@@ -117,11 +287,28 @@ body, html {
   height: 9.28rem;
   background: url("../imgs/2-btn.png") no-repeat 0rem 0rem;
   background-size: cover;
+  -webkit-transform: translate3d(0, 300%, 0);
+          transform: translate3d(0, 300%, 0);
+  -webkit-transition: transform 0.5s 1s ease-out;
+  -webkit-transition: -webkit-transform 0.5s 1s ease-out;
+  transition: -webkit-transform 0.5s 1s ease-out;
+  transition: transform 0.5s 1s ease-out;
+  transition: transform 0.5s 1s ease-out, -webkit-transform 0.5s 1s ease-out;
+}
+
+.step2.active .text {
+  -webkit-animation: zoomIn 1s 0s cubic-bezier(0.48, 1.28, 0.62, 1.32) forwards;
+  animation: zoomIn 1s 0s cubic-bezier(0.48, 1.28, 0.62, 1.32) forwards;
+}
+
+.step2.active .btn {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
 }
 
 .step3 {
   background: url("../imgs/3-bg.jpg") no-repeat 50% 50%;
-  background-size: 100% 100%;
+  background-size: 100% auto;
   width: 100%;
   height: 100%;
 }
@@ -156,6 +343,11 @@ body, html {
   z-index: 2;
   width: 22.11556rem;
   height: 12.26667rem;
+  max-width: 26.66667rem;
+  overflow: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s 1.5s linear;
+  transition: opacity 0.5s 1.5s linear;
   background: #000;
 }
 
@@ -176,6 +368,7 @@ body, html {
   height: 7.57333rem;
   background: url("../imgs/3-car.png") no-repeat 0rem 0rem;
   background-size: cover;
+  opacity: 0;
 }
 
 .step3 .btn {
@@ -189,6 +382,28 @@ body, html {
   height: 10.06222rem;
   background: url("../imgs/3-btn.png") no-repeat 0rem 0rem;
   background-size: cover;
+  -webkit-transform: translate3d(0, 300%, 0);
+          transform: translate3d(0, 300%, 0);
+  -webkit-transition: transform 0.5s 0.3s ease-out;
+  -webkit-transition: -webkit-transform 0.5s 0.3s ease-out;
+  transition: -webkit-transform 0.5s 0.3s ease-out;
+  transition: transform 0.5s 0.3s ease-out;
+  transition: transform 0.5s 0.3s ease-out, -webkit-transform 0.5s 0.3s ease-out;
+}
+
+.step3.active .car {
+  -webkit-animation: zoomInLeft 1s 0s cubic-bezier(0.48, 1.28, 0.62, 1.32) forwards;
+  animation: zoomInLeft 1s 0s cubic-bezier(0.48, 1.28, 0.62, 1.32) forwards;
+  opacity: 1;
+}
+
+.step3.active .btn.show {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+.step3.active .video {
+  opacity: 1;
 }
 
 .step4 {
@@ -203,27 +418,37 @@ body, html {
 
 .step4 .q-1 {
   background: url("../imgs/question/q-bg-1.jpg") no-repeat 50% 50%;
-  background-size: 100% 100%;
+  background-size: 100% auto;
 }
 
 .step4 .q-2 {
   background: url("../imgs/question/q-bg-2.jpg") no-repeat 50% 50%;
-  background-size: 100% 100%;
+  background-size: 100% auto;
 }
 
 .step4 .q-3 {
   background: url("../imgs/question/q-bg-3.jpg") no-repeat 50% 50%;
-  background-size: 100% 100%;
+  background-size: 100% auto;
 }
 
 .step4 .q-4 {
   background: url("../imgs/question/q-bg-4.jpg") no-repeat 50% 50%;
-  background-size: 100% 100%;
+  background-size: 100% auto;
 }
 
 .step4 .q-5 {
   background: url("../imgs/question/q-bg-5.jpg") no-repeat 50% 50%;
-  background-size: 100% 100%;
+  background-size: 100% auto;
+}
+
+.step4 [class^=q-text] {
+  -webkit-transform: translate(0, -300%);
+          transform: translate(0, -300%);
+  -webkit-transition: transform 0.5s 0s cubic-bezier(0.19, 1.48, 0.69, 1.42);
+  -webkit-transition: -webkit-transform 0.5s 0s cubic-bezier(0.19, 1.48, 0.69, 1.42);
+  transition: -webkit-transform 0.5s 0s cubic-bezier(0.19, 1.48, 0.69, 1.42);
+  transition: transform 0.5s 0s cubic-bezier(0.19, 1.48, 0.69, 1.42);
+  transition: transform 0.5s 0s cubic-bezier(0.19, 1.48, 0.69, 1.42), -webkit-transform 0.5s 0s cubic-bezier(0.19, 1.48, 0.69, 1.42);
 }
 
 .step4 .q-text-1 {
@@ -336,6 +561,21 @@ body, html {
   background-size: cover;
 }
 
+.step4.active [class^=q-text] {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+.step4.active .option-a, .step4.active .option-b {
+  -webkit-animation: flipInX 0.8s 1.5s ease-out forwards;
+  animation: flipInX 0.8s 1.5s ease-out forwards;
+}
+
+.step4.active .option-b {
+  -webkit-animation: flipInX 0.8s 2s ease-out forwards;
+  animation: flipInX 0.8s 2s ease-out forwards;
+}
+
 .step5 {
   width: 100%;
   height: 100%;
@@ -348,27 +588,27 @@ body, html {
 
 .step5 .a-1 {
   background: url("../imgs/answer/1.jpg") no-repeat 50% 50%;
-  background-size: 100% 100%;
+  background-size: 100% auto;
 }
 
 .step5 .a-2 {
   background: url("../imgs/answer/2.jpg") no-repeat 50% 50%;
-  background-size: 100% 100%;
+  background-size: 100% auto;
 }
 
 .step5 .a-3 {
   background: url("../imgs/answer/3.jpg") no-repeat 50% 50%;
-  background-size: 100% 100%;
+  background-size: 100% auto;
 }
 
 .step5 .a-4 {
   background: url("../imgs/answer/4.jpg") no-repeat 50% 50%;
-  background-size: 100% 100%;
+  background-size: 100% auto;
 }
 
 .step5 .a-5 {
   background: url("../imgs/answer/5.jpg") no-repeat 50% 50%;
-  background-size: 100% 100%;
+  background-size: 100% auto;
 }
 
 .step5 .btn {
@@ -427,7 +667,7 @@ body, html {
 
 .step6 {
   background: url("../imgs/7-bg.jpg") no-repeat 50% 50%;
-  background-size: 100% 100%;
+  background-size: 100% auto;
   width: 100%;
   height: 100%;
 }
@@ -512,5 +752,38 @@ body, html {
 .msg.fade {
   top: -10rem;
   padding: 0;
+}
+
+@media screen and (max-width: 320px) {
+  .step3 .btn {
+    margin-top: 10rem;
+  }
+  .step4 [class^=q-text] {
+    margin-top: -8rem;
+  }
+  .step4.active [class^=q-text] {
+    -webkit-transform: translate3d(0, -10rem, 0);
+            transform: translate3d(0, -10rem, 0);
+  }
+  .step4 .option-a, .step4 .option-b {
+    -webkit-animation: none !important;
+            animation: none !important;
+    margin-top: 7.5rem;
+    -webkit-transform: scale(0.8) !important;
+            transform: scale(0.8) !important;
+  }
+  .step4 .option-b {
+    margin-top: 11.2rem;
+  }
+  .step5 .btn {
+    margin-top: 10rem;
+  }
+  .step6 .form {
+    -webkit-transform: scale(0.8) translateY(1rem);
+            transform: scale(0.8) translateY(1rem);
+  }
+  .step6 .btn {
+    margin-top: 11rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */
