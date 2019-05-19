@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>一起打啵</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,viewport-fit=cover"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="full-screen" content="yes"/>
+    <meta name="browsermode" content="application"/>
+    <meta name="x5-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="x5-page-mode" content="app"/>
+	<link rel="stylesheet" type="text/css" href="./statics/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="./statics/css/style.css">
+</head>
+<body>
+ 	<div class="container"  id="app">
+
+ 		<div class="step1  active" v-if="step==1">
+ 			<em class="i-ball"></em>
+ 			<em class="i-book"></em>
+ 			<em class="i-man"></em>
+ 			<em class="i-loading">
+ 				<var class="loading"></var>
+ 				<span :style="'width:'+loadNum+'%'"></span>
+ 			</em>
+ 			<em class="i-logo"></em>
+
+ 			<em class="flower"></em>
+
+			<em class="i-mouse v1"></em>
+ 			<em class="i-mouse v2"></em>
+ 			<em class="i-mouse v3"></em>
+
+ 		</div>
+
+ 		<div class="step2 " v-if="step==2"  >
+ 		 <em class="i-beauty"></em>
+ 		 <em class="rule-txt"></em>
+		 <em class="btn" @click="toCall">我也要打啵</em>	
+ 		</div>
+
+ 		<div class="step3  "  v-if="step==3"  >
+ 		 <div class="window"     ></div>
+ 		 <canvas id="tCanvas"></canvas> 
+ 		 <img src="" id="save-img">
+		 <em class="btn-v1" @click="finishCall">打啵完成</em>	
+		 <em class="btn-v2" @click="shareCall">一起打啵</em>
+	
+		 <div class="dialog-finish  "  v-if="finishDialog">
+		 	<em @click="finishCall">x</em>
+		 	<img src="./statics/imgs/bg-finish.png">
+		 </div>
+		 <div class="dialog-toshare  " v-if="shareDialog"  @click="shareCall"></div>
+
+ 		</div>
+
+ 	</div>
+<script type="text/javascript">
+	window.baseImgPath = "./statics/imgs/";
+	var shareConfig = {
+		title:"一起打啵",
+		img:"200x200.jpg",
+		shareLink:"/",
+		desc:""
+	}
+</script>
+<script type="text/javascript">
+		var nickname    = "<?= isset($userinfo['nickname']) ? $userinfo['nickname'] : '';?>"
+	var headimgurl = "<?= isset($userinfo['headimgurl']) ? $userinfo['headimgurl'] : ''; ?>"
+	window.isdebug = false;
+	window._domain = "http://h5.zixisi.cn/";
+	window.baseImgPath = _domain + "/statics/imgs/";
+	var shareConfig = { 
+		title:"世界杯观赛打call不如打啵",
+		img:baseImgPath + "200x200.jpg",
+		shareLink:location.href,
+		desc:"精美礼品等着你哟",
+		uploadUrl:"//h5.zixisi.cn/upload.php"
+	}
+</script>
+<script type="text/javascript" src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="./statics/js/zepto.v1.2.0.js"></script>
+<script src="./statics/js/vue.2.0.js"></script>
+<script src="./statics/js/page.js"></script>
+</body>
+</html>

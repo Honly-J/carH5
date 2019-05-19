@@ -1,0 +1,14 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "",
+  "devDependencies": {
+    "cmd-util": "^0.3.13",
+    "grunt": "^0.4.5",
+    "grunt-contrib-watch": "^1.0.0",
+    "vue": "^2.4.2"
+  },
+  "dependencies": {
+    "sass": "^1.5.1"
+  }
+}

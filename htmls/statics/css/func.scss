@@ -1,0 +1,152 @@
+@mixin animate($x:.3, $delay :0,$type:ease-in-out,$style:all){
+  -webkit-transition:$style #{$x}s  #{$delay}s  $type;
+  transition:$style #{$x}s #{$delay}s   $type;
+}
+
+@mixin animate2($name:"",$x:.3,$delay:0,$type:linear,$count:infinite){
+  -webkit-animation:$name #{$x}s  #{$delay}s  $type $count;
+  animation:$name #{$x}s  #{$delay}s  $type $count;
+}
+
+@mixin opacity($x){
+  opacity: $x;
+  filter: alpha(opacity=$x*100);
+  -moz-opacity: $x;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$x*100})";
+}
+@mixin br($x:0){
+  -webkit-border-radius: $x*1px;
+  -moz-border-radius: $x*1px;
+  border-radius: $x*1px;
+}
+
+@mixin btn($w:100,$h:34,$color:#fff,$bg:#fff,$fs:12,$br:0){
+  width:$w*1px;
+  height:$h*1px;
+  color:$color;
+  background: $bg;
+  font: $fs*1px "Microsoft Yahei";
+  line-height:$h*1px;
+  text-align: center;
+  @if $br!=0
+  {
+    @include br($br);
+  }
+  &:hover{
+    @include opacity(.8);
+  }
+}
+
+@mixin btn2($w:100,$h:34,$color:#fff,$bg:#fff,$fs:12){
+  width:$w;
+  height:$h;
+  color:$color;
+  background: $bg;
+  font: $fs "Microsoft Yahei";
+  line-height:$h;
+  text-align: center;
+}
+@mixin eclip(){
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin boxsb{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@mixin boxsc{
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+@mixin text-shadow($x:0,$y:0,$blur:0,$c:#fff){
+  -webkit-text-shadow: $x+0px $y+0px $blur+0px $c;
+  text-shadow: $x+0px $y+0px $blur+0px $c;
+}
+@mixin box-shadow($x:0,$y:0,$blur:0,$c:#fff,$in:""){
+  @if $in!=""{
+    -webkit-box-shadow: $x+0px $y+0px $blur+0px $c $in;
+    box-shadow: $x+0px $y+0px $blur+0px $c $in;
+  }@else{
+    -webkit-box-shadow: $x+0px $y+0px $blur+0px $c;
+    box-shadow: $x+0px $y+0px $blur+0px $c;
+  }
+}
+@mixin fs($num:0,$fw:normal){
+  font-size: $num;
+  @if( $fw ) {font-weight: $fw;}
+  font-family: "PingFang SC",Helvetica,"Helvetica Neue","微软雅黑",Tahoma,Arial,sans-serif;
+}
+.fc{
+  &:after{
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+@mixin marks{
+  background-color:rgba(0,0,0,.5);
+  position: fixed;
+  top:0;left:0;right:0;bottom:0;
+  z-index: 4;
+  height:100%;
+  width:100%;
+}
+@mixin gradient($dir:left,$from:#ffa300,$to:#ff7800,$type:linear){
+  background: -o-linear-gradient($type, $dir, from($from), to($to));
+  background: -moz-linear-gradient($type, $dir, from($from), to($to));
+   background: -webkit-linear-gradient($dir, $from, $to);
+  background: -webkit-gradient($type, $dir, from($from), to($to));
+}
+
+
+@mixin clamp($h:0,$lh:0,$clamp:1,$maxheight:0){
+  line-height: $lh;
+  @if $maxheight{
+    max-height: $h;
+  }@else{
+    height: $h;
+  }
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $clamp;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+ @mixin pos($x,$y){
+  position: absolute;
+  left:rem($x);
+  top:rem($y);
+  z-index:1;
+}
+@mixin poc($x:0,$y:0,$z:1){
+  position: absolute;
+  left:50%;
+  top:50%;
+  margin-left:rem($x);
+  margin-top:rem($y);
+  z-index:$z;
+}
+@mixin bg($url:'',$w:0,$h:0,$x:0,$y:0){
+  @if $w!=0{
+    width:rem($w);
+    height:rem($h);
+  }
+  @if $url!= ''{
+    background:url('../imgs/#{$url}') no-repeat rem($x)  rem($y);
+    background-size:cover;
+  }
+}
+@mixin bg2($w:0,$h:0,$iw:0,$ih:0,$url:'',$x:'',$y:''){
+  width:rem($w);
+  height:rem($h);
+  background:url('../imgs/#{$url}') no-repeat $x $y;
+  background-size:rem($iw) rem($ih);
+}

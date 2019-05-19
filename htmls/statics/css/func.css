@@ -1,0 +1,8 @@
+.fc:after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/*# sourceMappingURL=func.css.map */

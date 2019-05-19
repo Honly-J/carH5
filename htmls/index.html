@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>一起打啵</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,viewport-fit=cover"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="full-screen" content="yes"/>
+    <meta name="browsermode" content="application"/>
+    <meta name="x5-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="x5-page-mode" content="app"/>
+	<link rel="stylesheet" type="text/css" href="./statics/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="./statics/css/style.css">
+</head>
+<body>
+ 	<div class="container"  id="app">
+		<div class="msg" :class="{fade: !msg}">{{msg}}</div>
+ 		<div class="step1" :class="{active:step===1}" v-if="step==1">
+			 <div class="car"></div>
+			 <div class="num">{{loadNum}}%</div>
+ 		</div> 
+		<div class="step2 " :class="{active:step===2}" v-if="step==2">
+			<div class="text"></div>
+			<div class="btn" @click="step2BtnEvent"></div>
+		</div>
+		<div class="step3 " :class="{active:step===3}" v-if="step==3">
+			<div class="text">
+				<h1>!</h>
+				<p>
+					集中注意力,仔细观看这支视频 <br>
+					测试问题的答案就藏在这里
+				</p>
+			</div>
+			<div class="video">
+				<video id="videoRef" src="https://www.runoob.com/try/demo_source/movie.mp4" width="100%"></video>
+			</div>
+			<div class="car"></div>
+			<div class="btn" v-show="videoEnd" @click="step3BtnEvent"></div>
+		</div>
+		<!-- 问题 -->
+		<div class="step4" :class="{active:step===4}" v-if="step==4">
+			<div :class="'q-text-'+qIndex"></div>
+			<div :class="'bg q-'+qIndex"></div>
+			<div class="option-a" @click="nextQuestion">{{qArr[qIndex].a}}</div>
+			<div class="option-b" @click="nextQuestion">{{qArr[qIndex].b}}</div>
+		</div>
+		<!-- 结果 -->
+		<div class="step5" :class="{active:step===5}" v-if="step==5">
+			<div :class="'bg a-'+AIndex"></div>
+			<div class="btn fc " v-show='!afterPressShare'>
+				<span title="分享朋友圈" @click="toShare"></span>
+				<span title="预约试驾" @click.prevent.stop="step=6"></span>
+			</div>
+			<div class="longPressBtn" v-show='afterPressShare'></div>
+			<!-- <div class="codeImg"><img src="./statics/imgs/2code.jpg" alt=""></div> -->
+		</div>
+		<div class="step6" :class="{active:step===6}" v-if="step==6">
+			<div class="form">
+				<div class="item">
+					<span>姓名</span>
+					<input type="text" v-model.trim='tform.name'>
+				</div>
+				<div class="item">
+					<span>电话</span>
+					<input type="tel" v-model.trim='tform.tel'>
+				</div>
+				<div class="group fc">
+					<div class="item fl w286">
+						<span>省</span>
+						<select name="" id="" v-model='iProvince' >
+							<option  v-for="(item,ind) in fData" :value="ind">{{item.province}}</option>
+						</select>
+					</div>
+					<div class="item fr w300">
+						<span>市区</span>
+						<select name="" id="" v-model='icity'>
+							<option  v-for="(item,ind2) in fData[iProvince].city" :value="ind2">{{item.name}}</option>
+						</select>
+					</div>
+				</div>
+				<div class="item">
+					<span>经销商</span>
+					<select class="w400" v-model='tform.order'>
+						<option  v-for="item in fData[iProvince].city[icity].order" :value="item">{{item}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="btn" @click="subDueInfo"></div>
+		</div>
+		
+ 	</div>
+<script type="text/javascript">
+	window.saveUrl = "./sub.json"
+	window.baseImgPath = "./statics/imgs/";
+	var shareConfig = {
+		title:"一起打啵",
+		img:"200x200.jpg",
+		shareLink:"/",
+		desc:""
+	}
+</script>
+<script type="text/javascript" src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="./statics/js/zepto.v1.2.0.js"></script>
+<script src="./statics/js/vue.2.0.js"></script>
+<script src="./statics/js/data.js"></script>
+<script src="./statics/js/page.js"></script>
+</body>
+</html>

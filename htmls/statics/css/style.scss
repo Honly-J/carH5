@@ -1,0 +1,245 @@
+@import "func";
+@import 'animation';
+@function rem($x:0){
+	@return  $x/28.125+0rem;
+}
+body,html{
+	width:100%;
+	height:100%;
+	font-size:rem(26);
+}
+.container{
+	min-width:320px;
+	max-width: 750px;
+	height:100%;
+	position: fixed;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+	bottom: 0;
+	right:0;
+	z-index: 0;	 
+	background-color: #000;
+	color:#fff
+}
+.step1{
+	background: url('../imgs/1.bg.jpg') no-repeat 50% 50%;
+	background-size: 100% 100%;
+	width:100%;
+	height: 100%;
+	.car{
+		@include poc(-311/2,-300/2,1);
+		@include bg("1-car.png",311,300);
+	}
+	.num{
+		@include poc(0,100,1);
+		width:100%;
+		left:0;
+		text-align: center;
+		color:#fff;
+		font-style: italic;
+		font-weight: bold;
+		letter-spacing: 1px;
+	}
+}
+.step2{
+	background: url('../imgs/2-bg-2.jpg') no-repeat 50% 50%;
+	background-size: 100% 100%;
+	width:100%;
+	height: 100%;
+	.text{
+		@include poc(-449/2,-449,1);
+		@include bg("2-text.png",449,391);
+	}
+	.btn{
+		@include poc(-282/2,270,1);
+		@include bg("2-btn.png",282,261);
+	}
+}
+
+.step3{
+	background: url('../imgs/3-bg.jpg') no-repeat 50% 50%;
+	background-size: 100% 100%;
+	width:100%;
+	height: 100%;
+	.text{
+		@include poc(0,-285,1);
+		h1{font-size: rem(80);}
+		width:100%;
+		left:0;
+		line-height: 1.5;
+		text-align: center;
+		p{
+			font-size: rem(26);
+		}
+	}
+	.video{
+		@include poc(-622/2,-325,2);
+		@include bg('',622,345);
+		// border:1px solid #fff;
+		background:#000;
+		video{
+			display: block;
+			width:100%;
+			height: rem(345)
+		}
+	}
+	.car{
+		@include poc(-152,33,1);
+		@include bg("3-car.png",506,213);
+	}
+	.btn{
+		@include poc(-340/2,386,1);
+		@include bg("3-btn.png",340,283);
+	}
+}
+// 问题
+.step4{
+	width:100%;
+	height: 100%;
+	.bg{
+		width:100%;
+		height: 100%;
+	}
+	@for $i from 1 to 6 {
+		.q-#{$i}{
+			background: url('../imgs/question/q-bg-#{$i}.jpg') no-repeat 50% 50%;
+			background-size: 100% 100%;
+		}
+	}
+	.q-text-1{
+		@include poc(-317/2,-623,1);
+		@include bg("question/q-txt-1.png",317,93);
+	}
+	.q-text-2{
+		@include poc(-425/2,-623,1);
+		@include bg("question/q-txt-2.png",425,93);
+	}
+	.q-text-3{
+		@include poc(-341/2,-623,1);
+		@include bg("question/q-txt-3.png",341,93);
+	}
+	.q-text-4{
+		@include poc(-287/2,-623,1);
+		@include bg("question/q-txt-4.png",287,93);
+	}
+	.q-text-5{
+		@include poc(-237/2,-623,1);
+		@include bg("question/q-txt-5.png",237,93);
+	}
+	.text{
+		@include poc(-449/2,-449,1);
+		@include bg("2-text.png",449,391);
+	}
+	.option-a{
+		text-indent: rem(120);
+		font-style: italic;
+		font-size: rem(28);
+		font-weight: bold;
+		line-height: rem(123);
+		letter-spacing: 1px;
+		@include poc(-642/2,326,1);
+		@include bg("question/option-a.png",642,127);
+	}
+	.option-b{
+		@extend .option-a;
+		@include poc(-642/2,427,1);
+		@include bg("question/option-b.png",642,127);
+	}
+}
+// 回答
+.step5{
+	width:100%;
+	height: 100%;
+	.bg{
+		width:100%;
+		height: 100%;
+	}
+	@for $i from 1 to 6 {
+		.a-#{$i}{
+			background: url('../imgs/answer/#{$i}.jpg') no-repeat 50% 50%;
+			background-size: 100% 100%;
+		}
+	}
+	.btn{
+		@include poc(-750/2,400,1);
+		@include bg("answer/btn.png",750,216);
+		span{
+			display: block;
+			width:rem(300);
+			float:left;
+			height: rem(116);
+			margin:rem(70) rem(20);;
+		}
+	}
+	.longPressBtn{
+		@include poc(-657/2,500,1);
+		@include bg("long-btn.png",657,122);
+	}
+	.codeImg{
+		@include poc(-260,350,1);
+		@include bg("code.png",352,249);
+		img{
+			display: block;
+			width:rem(164);
+			height: rem(164);
+			margin:1.8rem 5.5rem;
+		}
+	}
+}
+
+.step6{
+	background: url('../imgs/7-bg.jpg') no-repeat 50% 50%;
+	background-size: 100% 100%;
+	width:100%;
+	height: 100%;
+	.btn{
+		@include poc(-340/2,420,1);
+		@include bg("7-btn.png",340,155);
+	}
+	.form{
+		width:rem(600);
+		@include poc(-300,-411,1);
+		.item{
+			height: rem(82);
+			line-height: rem(82);
+			font-size: rem(32);
+			color:#fff;
+			margin-bottom: rem(20);
+			background-color: rgba(0,0,0,.5);
+			span{
+				margin:0 rem(24)
+			}
+		}
+		input,select{
+			background: none;
+			border:none;
+			outline: none;
+			color:#fff;
+			option{
+				color:#000
+			}
+		}
+		.w286{width:rem(286)}
+		.w300{width:rem(300)}
+		.w400{width:rem(430)}
+		.ml10{margin-left:rem(24)}
+	}
+}
+
+.msg{
+	background: rgba(182, 180, 180, 0.2);
+	color:rgb(233, 233, 233);
+	border-radius: rem(10);
+	position: absolute;
+	left:50%;
+	top:rem(30);
+	padding:rem(15) rem(30);
+	transform: translateX(-50%);
+	@include animate(.5,.1,linear,top);
+	&.fade{
+		top:-10rem;
+		padding:0;
+	}
+}

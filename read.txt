@@ -1,0 +1,7 @@
+this a h5 project
+
+AppSecret:
+76befa618667ddc0ee52e642a860e391
+76befa618667ddc0ee52e642a860e391
+AppID:
+wx56626b0cf024138d
