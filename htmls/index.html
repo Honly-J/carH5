@@ -56,6 +56,8 @@
 			</div>
 			<div class="longPressBtn" v-show='afterPressShare'></div>
 			<!-- <div class="codeImg"><img src="./statics/imgs/2code.jpg" alt=""></div> -->
+			<canvas id="tCanvas"></canvas>
+			<img v-show="afterPressShare" id="save-img">
 		</div>
 		<div class="step6" :class="{active:hasload}" v-if="step==6">
 			<div class="form">

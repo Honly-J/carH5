@@ -60,7 +60,7 @@
 		},
 		mounted: function() {
 			// if( !isWXBrowser()){ alert("请在微信浏览器中打开");return false; }
-			// this.toInitWX();
+			this.toInitWX();
 			this.loadImg();
 		},
 		computed: {
@@ -106,7 +106,13 @@
 				this.qIndex++
 				if(this.qIndex >= 5){
 					this.step = 5
+					return
 				}
+				var _this = this;
+				_this.hasload = false;
+				setTimeout(() => {
+					_this.hasload = true;
+				}, 500);
 			},
 			getWxInfo: function() {
 				this.wxUserInfo = {
@@ -117,6 +123,8 @@
 			},
 			toShare: function(){
 				this.afterPressShare = true
+				// to 生成图片
+				this.createPoster()
 			},
 			//init微信 
 			toInitWX: function() {
@@ -130,7 +138,7 @@
 				}, window.wxConfig, true);
 
 				wx.config(_c);
-				this.getWxInfo();
+				// this.getWxInfo();
 				wx.ready(function() {
 					//朋友圈
 					wx.onMenuShareTimeline({
@@ -191,61 +199,8 @@
 					oimg.src = basePath + item;
 				})
 			},
-			//选择图片或拍照并且生成图片
-			toCall: function() {
-				console.log("tocall")
-				var that = this;
-				setTimeout(function() {
-					wx.chooseImage({
-						count: 1,
-						sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
-						success: function(res) {
-							that.step = 3;
-							var imagesLocalId = res.localIds[0];
-							console.log(res, "chooseImage")
-							wx.checkJsApi({
-								jsApiList: ['getLocalImgData'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
-								success: function(res) {
-									if (res.checkResult.getLocalImgData) {
-										wx.getLocalImgData({
-											localId: imagesLocalId, // 图片的localID
-											success: function(res) {
-												// localData是图片的base64数据，可以用img标签显示
-												//  data:image/jpg;base64,
-												var dataUrl = res.localData.indexOf('data:image') == -1 ? ('data:image/jpg;base64,' + res.localData) : res.localData;
-
-												that.createPoster(dataUrl);
-											}
-										});
-									} else {
-										alert("微信版本太低，不支持图片合成哦")
-										//that.createPoster( imagesLocalId );
-									}
-								}
-							});
-						},
-						cancel: function() {
-							that.step = 2;
-						},
-						fail: function() {
-							that.step = 2;
-						}
-
-					});
-				}, 100)
-
-			},
-			hideIWin: function() {
-				this.hideIWinStatus = !this.hideIWinStatus
-			},
-			finishCall: function() {
-				this.finishDialog = !this.finishDialog;
-			},
-			shareCall: function() {
-				this.shareDialog = !this.shareDialog;
-			},
 			//生成分享海报
-			createPoster: function(oimg) {
+			createPoster: function() {
 				var that = this;
 				var cv = document.getElementById("tCanvas");
 				var ctx = cv.getContext('2d');
@@ -263,18 +218,16 @@
 				cv.style.display = "none";
 				//大背景
 				try {
-					drawImg(baseImgPath + "bg-canvas.jpg", 0, 0, 0, 0, 0, 0, cv.width, cv.height, function() {
-						drawImg( oimg , 0, 0, 0, 0, 39, 494, 368, 588, function() {
-							var _imgSrc = cv.toDataURL("image/png", 1),
-								saveImg = document.getElementById("save-img");
-							   cv.style.display = "block";
-							// console.log("_imgSrc",_imgSrc)
-							saveImg.style.display = "block";
-							saveImg.setAttribute("src", _imgSrc);
-							that.uploadData({
-								"image": _imgSrc
-							});
-
+					drawImg(baseImgPath + "answer/"+ this.AIndex +".jpg", 0, 0, 0, 0, 0, 0, cv.width, cv.height, function() {
+						console.log(12222)
+						drawImg( baseImgPath + "code.png" , 0, 0, 0, 0, 130,1050, 352, 249, function() {
+							console.log(33333)
+							drawImg( baseImgPath + "2code.jpg" , 0, 0, 0, 0, 285, 1100, 164, 164, function() {
+								console.log(4444)
+								var _imgSrc = cv.toDataURL("image/png", 1),
+									 saveImg = document.getElementById("save-img");
+								saveImg.setAttribute("src", _imgSrc);
+							},true)
 						}, true);
 					});
 				} catch (e) {

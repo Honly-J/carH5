@@ -763,6 +763,20 @@ body, html {
   padding: 0;
 }
 
+#tCanvas {
+  opacity: 0;
+}
+
+#save-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: .01;
+  z-index: 99;
+}
+
 @media screen and (max-width: 320px) {
   .step3 .btn {
     margin-top: 10rem;
