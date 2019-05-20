@@ -16,6 +16,7 @@
 </head>
 <body>
  	<div class="container"  id="app">
+		<div class="step0" v-if="step==0"></div>
 		<div class="msg" :class="{fade: !msg}">{{msg}}</div>
  		<div class="step1" :class="{active: hasload}" v-if="step==1">
 			 <div class="car"></div>

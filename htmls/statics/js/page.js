@@ -28,7 +28,7 @@
 	new Vue({
 		el: '#app',
 		data: {
-			step: 4, // 页面索引
+			step: 0, // 页面索引
 			qIndex:1, // 题目索引
 			iProvince:0, //'省会索引'
 			icity:0, //'城市索引'
@@ -61,7 +61,7 @@
 		mounted: function() {
 			// if( !isWXBrowser()){ alert("请在微信浏览器中打开");return false; }
 			// this.toInitWX();
-			// this.loadImg();
+			this.loadImg();
 		},
 		computed: {
 
