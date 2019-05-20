@@ -37,6 +37,9 @@
   50% {
     opacity: 1;
   }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes zoomIn {
@@ -46,6 +49,9 @@
     transform: scale3d(0.3, 0.3, 0.3);
   }
   50% {
+    opacity: 1;
+  }
+  100% {
     opacity: 1;
   }
 }
@@ -215,7 +221,7 @@ body, html {
   width: 100%;
   height: 100%;
   position: fixed;
-  z-index: 999;
+  z-index: 99999;
 }
 
 .step1 {
@@ -282,6 +288,7 @@ body, html {
   height: 13.90222rem;
   background: url("../imgs/2-text.png") no-repeat 0rem 0rem;
   background-size: cover;
+  opacity: 0;
 }
 
 .step2 .btn {
@@ -297,11 +304,11 @@ body, html {
   background-size: cover;
   -webkit-transform: translate3d(0, 300%, 0);
           transform: translate3d(0, 300%, 0);
-  -webkit-transition: transform 0.5s 1s ease-out;
-  -webkit-transition: -webkit-transform 0.5s 1s ease-out;
-  transition: -webkit-transform 0.5s 1s ease-out;
-  transition: transform 0.5s 1s ease-out;
-  transition: transform 0.5s 1s ease-out, -webkit-transform 0.5s 1s ease-out;
+  -webkit-transition: transform 0.5s 1s cubic-bezier(0.19, 0.93, 0.58, 1.43);
+  -webkit-transition: -webkit-transform 0.5s 1s cubic-bezier(0.19, 0.93, 0.58, 1.43);
+  transition: -webkit-transform 0.5s 1s cubic-bezier(0.19, 0.93, 0.58, 1.43);
+  transition: transform 0.5s 1s cubic-bezier(0.19, 0.93, 0.58, 1.43);
+  transition: transform 0.5s 1s cubic-bezier(0.19, 0.93, 0.58, 1.43), -webkit-transform 0.5s 1s cubic-bezier(0.19, 0.93, 0.58, 1.43);
 }
 
 .step2.active .text {
@@ -354,8 +361,8 @@ body, html {
   max-width: 26.66667rem;
   overflow: hidden;
   opacity: 0;
-  -webkit-transition: opacity 0.5s 1.5s linear;
-  transition: opacity 0.5s 1.5s linear;
+  -webkit-transition: opacity 0.5s 2s linear;
+  transition: opacity 0.5s 2s linear;
   background: #000;
 }
 
@@ -653,6 +660,19 @@ body, html {
   background-size: cover;
 }
 
+.step5 .share-mark {
+  background: rgba(0, 0, 0, 0.5) url("../imgs/share-mark-bg.png") no-repeat 50% 50%;
+  background-size: 100% auto;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
 .step5 .codeImg {
   position: absolute;
   left: 50%;
@@ -778,8 +798,25 @@ body, html {
 }
 
 @media screen and (max-width: 320px) {
+  .step3 .video {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -8.84622rem;
+    margin-top: -9.24444rem;
+    z-index: 2;
+    width: 17.69244rem;
+    height: 9.81333rem;
+    max-width: 26.66667rem;
+  }
+  .step3 .video video {
+    height: 9.81333rem;
+  }
   .step3 .btn {
     margin-top: 10rem;
+    width: 9.67111rem;
+    height: 8.04978rem;
+    margin-left: -4.44622rem;
   }
   .step4 [class^=q-text] {
     margin-top: -8rem;
@@ -801,12 +838,44 @@ body, html {
   .step5 .btn {
     margin-top: 10rem;
   }
+  .step5 .longPressBtn {
+    margin-top: 13.77778rem;
+  }
   .step6 .form {
     -webkit-transform: scale(0.8) translateY(1rem);
             transform: scale(0.8) translateY(1rem);
   }
   .step6 .btn {
     margin-top: 11rem;
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .step3 .btn {
+    margin-top: 13rem;
+    width: 9.67111rem;
+    height: 8.04978rem;
+    margin-left: -4.44622rem;
+  }
+  .step4 [class^=q-text] {
+    margin-top: -21rem;
+  }
+  .step5 .btn {
+    margin-top: 14rem;
+  }
+  .step5 .longPressBtn {
+    margin-top: 16.77778rem;
+  }
+  .step6 .form {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  .step6 .btn {
+    margin-top: 14rem;
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>一起打啵</title>
+	<title>X战警</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,viewport-fit=cover"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta content="telephone=no" name="format-detection" />
@@ -35,7 +35,7 @@
 				</p>
 			</div>
 			<div class="video">
-				<video id="videoRef" src="https://www.runoob.com/try/demo_source/movie.mp4" width="100%"></video>
+				<video id="videoRef" preload src="./statics/media/1.mp4" width="100%"></video>
 			</div>
 			<div class="car"></div>
 			<div class="btn" :class="{show:videoEnd}" @click="step3BtnEvent"></div>
@@ -55,7 +55,7 @@
 				<span title="预约试驾" @click.prevent.stop="step=6"></span>
 			</div>
 			<div class="longPressBtn" v-show='afterPressShare'></div>
-			<!-- <div class="codeImg"><img src="./statics/imgs/2code.jpg" alt=""></div> -->
+			<div class="share-mark" v-show='afterPressShare' onclick='this.style.display="none"'></div>
 			<canvas id="tCanvas"></canvas>
 			<img v-show="afterPressShare" id="save-img">
 		</div>
@@ -95,13 +95,14 @@
 		
  	</div>
 <script type="text/javascript">
-	window.saveUrl = "./sub.json"
+	window.saveUrl = "./sub.json" //保存信息地址
 	window.baseImgPath = "./statics/imgs/";
+	// 分享配置
 	var shareConfig = {
-		title:"一起打啵",
-		img:"200x200.jpg",
-		shareLink:"/",
-		desc:""
+		title:"X战警",
+		img: location.origin + '/'+ window.baseImgPath + "share.jpg",
+		shareLink:"/", //分享url
+		desc:"" // 描述
 	}
 </script>
 <script type="text/javascript" src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>

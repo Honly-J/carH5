@@ -28,7 +28,7 @@ body,html{
 	width:100%;
 	height: 100%;
 	position: fixed;
-	z-index: 999;
+	z-index: 99999;
 }
 .step1{
 	background: url('../imgs/1.bg.jpg') no-repeat 50% 50%;
@@ -64,16 +64,17 @@ body,html{
 	.text{
 		@include poc(-449/2,-449,1);
 		@include bg("2-text.png",449,391);
+		opacity: 0;
 	}
 	.btn{
 		@include poc(-282/2,270,1);
 		@include bg("2-btn.png",282,261);
 		transform: translate3d(0,300%,0);
-		@include animate(.5,1,ease-out,transform)
+		@include animate(.5,1,cubic-bezier(.19,.93,.58,1.43),transform)
 	}
 	&.active{
 		.text{
-			@include animate2(zoomIn,1,0,cubic-bezier(.48,1.28,.62,1.32),forwards)
+			@include animate2(zoomIn,1,0,cubic-bezier(.48,1.28,.62,1.32),forwards);
 		}
 		.btn{
 			transform: translate3d(0,0,0)
@@ -103,7 +104,7 @@ body,html{
 		max-width: rem(750);
 		overflow: hidden;
 		opacity: 0;
-		@include animate(.5,1.5,linear,opacity);
+		@include animate(.5,2,linear,opacity);
 		background:#000;
 		video{
 			display: block;
@@ -128,7 +129,7 @@ body,html{
 			opacity: 1;
 		}
 		.btn.show{
-			transform: translate3d(0,0,0)
+			transform: translate3d(0,0,0) 
 		}
 		.video{
 			opacity: 1
@@ -233,6 +234,18 @@ body,html{
 		@include poc(-657/2,500,1);
 		@include bg("long-btn.png",657,122);
 	}
+	.share-mark{
+		background:rgba(0,0,0,.5) url('../imgs/share-mark-bg.png') no-repeat 50% 50%;
+		background-size: 100% auto;
+		width:100%;
+		height: 100%;
+		position: absolute;
+		left:50%; 
+		top:50%;
+		transform: translate(-50%,-50%);
+		z-index: 999;
+
+	}
 	.codeImg{
 		@include poc(-260,350,1);
 		@include bg("code.png",352,249);
@@ -316,8 +329,19 @@ body,html{
 
 @media screen and (max-width:320px) {
 	.step3{
+		.video{
+			@include poc(-622/2*0.8,-325*0.8,2);
+			@include bg('',622*0.8,345*0.8);
+			max-width: rem(750);
+			video{
+				height: rem(345*0.8)
+			}
+		}
 		.btn{
-			margin-top: 10rem
+			margin-top: 10rem;
+			width: 12.08889*0.8+0rem;
+			height: 10.06222*0.8+0rem;
+			margin-left: -4.44622rem;
 		}
 	}
 	.step4{
@@ -340,13 +364,50 @@ body,html{
 		.btn{
 			margin-top:10rem;
 		}
+		.longPressBtn {
+			margin-top: 13.77778rem;
+		}
 	}
 	.step6{
 		.form{
 			transform: scale(.8) translateY(1rem)
 		}
 		.btn{
-			margin-top: 11rem
+			margin-top: 11rem;
+			transform: scale(.8) 
+		}
+	}
+}
+
+@media screen and (max-width:375px) {
+	.step3{
+		.btn{
+			margin-top: 13rem;
+			width: 12.08889*0.8+0rem;
+			height: 10.06222*0.8+0rem;
+			margin-left: -4.44622rem;
+		}
+	}
+	.step4{
+		[class^=q-text]{
+			margin-top: -21rem;
+		}
+	}
+	.step5{
+		.btn{
+			margin-top:14rem;
+		}
+		.longPressBtn {
+			margin-top: 16.77778rem;
+		}
+	}
+	.step6{
+		.form{
+			transform: scale(.9) 
+		}
+		.btn{
+			margin-top: 14rem;
+			transform: scale(.9) 
 		}
 	}
 }

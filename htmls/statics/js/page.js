@@ -61,7 +61,7 @@
 		mounted: function() {
 			// if( !isWXBrowser()){ alert("请在微信浏览器中打开");return false; }
 			this.toInitWX();
-			this.loadImg();
+			this.step === 0 && this.loadImg();
 		},
 		computed: {
 
@@ -91,7 +91,7 @@
 						console.log("结束");
 						_this.videoEnd = true
 					})
-				}, 300);
+				},3000);
 			},
 			step2BtnEvent(){
 				this.step = 3 
@@ -170,10 +170,10 @@
 				this.step = 1;
 				var that = this,
 					arr = [
-						'1.bg.jpg','2-bg.jpg','2-btn.png','3-bg.jpg','3-car.png','long-btn.png',
+						'1.bg.jpg','2-bg.jpg','2-btn.png','3-bg.jpg','3-car.png','long-btn.png','share-mark-bg.png',
 						'1-car.png','7-btn.png','2-bg-2.jpg','2-text.png','3-btn.png','7-bg.jpg','code.png',
 						'question/option-a.png','question/option-b.png','question/q-bg-2.jpg','question/q-bg-4.jpg','question/q-txt-1.png','question/q-txt-3.png','question/q-txt-5.png','question/q-bg-3.jpg','question/q-bg-5.jpg','question/q-txt-2.png','question/q-txt-4.png',
-						'answer/1.jpg','answer/2.jpg','answer/3.jpg','answer/4.jpg','answer/5.jpg','answer/btn.png'
+						'answer/'+ this.AIndex +'.jpg','answer/btn.png'
 					],
 					oimg, _acount = 0,
 					timer = null;
@@ -323,7 +323,7 @@
 				var _this = this;
 				_this.subing = true;
 				$.ajax({
-					url: saveUrl,
+					url: window.saveUrl,
 					data: data,
 					dataType: "json",
 					type: "post",
